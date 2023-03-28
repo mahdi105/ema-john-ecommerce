@@ -2,7 +2,7 @@ import React from 'react';
 
 const Product = (props) => {
     const {name,seller,price,ratings,img} = props.product;
-    console.log(props.product)
+    const handleAddToCart = props.handleAddToCart;
     return (
         <div className='rounded-md border border-slate-200 relative'>
             <div className='p-2'>
@@ -19,7 +19,7 @@ const Product = (props) => {
                     
                 </div>
             </div>
-            <button className='hover:bg-rose-600 text-white absolute bottom-0 block bg-rose-500 w-full py-3 rounded-b-md'>
+            <button onClick={()=>handleAddToCart(props.product)} className='hover:bg-rose-600 text-white absolute bottom-0 block bg-rose-500 w-full py-3 rounded-b-md'>
                Add To Cart 
             </button>
         </div>
