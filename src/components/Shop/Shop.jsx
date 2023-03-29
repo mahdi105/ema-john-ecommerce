@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb } from '../../utilities/fakedb';
+import Cart from './Cart/Cart';
 import Product from './Product/Product';
 
 const Shop = () => {
     const [products,setProducts] = useState([]);
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
+    // Add To Cart Event handler
     const handleAddToCart = (product)=>{
         const newCart = [...cart,product];
         setCart(newCart);
+        addToDb(product.id);
     }
     console.log(cart);
     useEffect(()=>{
@@ -21,9 +25,8 @@ const Shop = () => {
                     products.map(product => <Product key={product.id} product={product} handleAddToCart={handleAddToCart}></Product>)
                 }
             </div>
-            <div className='bg-yellow-500 col-span-1 py-10 px-5'>
-                <h1>Total Cart Items: {cart.length}</h1>
-            </div>
+            <Cart cart={cart}></Cart>
+            
         </div>
     );
 };
