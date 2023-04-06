@@ -41,7 +41,7 @@ const Shop = () => {
         setCart(savedCart);
     },[products])
     return (
-        <div style={{position:'sticky'}} className='container mx-auto grid grid-cols-5'>
+        <div className='container mx-auto grid grid-cols-5'>
             <div className='col-span-4 products grid grid-cols-1 md:grid-cols-4 gap-5 p-10'>
                 {
                     products.map(product => <Product key={product.id} product={product} handleAddToCart={handleAddToCart}></Product>)

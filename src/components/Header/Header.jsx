@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../images/Logo.svg';
 import React from 'react';
 
@@ -8,10 +9,10 @@ const Header = () => {
                 <img src={logo} alt="" />
             </div>
             <div className='text-white flex justify-end items-center gap-8'>
-                <a href="/order" className='hover:text-yellow-600'>Order</a>
-                <a href="/order_review" className='hover:text-yellow-600'>Order Review</a>
-                <a href="/manage_inventory" className='hover:text-yellow-600'>Manage Inventory</a>
-                <a href="/login" className='hover:text-yellow-600'>Login</a>
+                <Link to="/"><span className='hover:text-yellow-600'>Shop</span></Link>
+                <Link to="/orders"><span className='hover:text-yellow-600'>Orders</span ></Link>
+                <Link to="/inventory" ><span className='hover:text-yellow-600'>Inventory</span></Link>
+                <Link to="/login"><span className='hover:text-yellow-600'>Login</span></Link>
             </div>
         </div>
     );
